@@ -1,0 +1,50 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Only For You ...</h1>
+    <p class="lead">Kick-start your idea's share with people</p>
+    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Idea's:</h1>
+      <div class="col-sm-12" ng-repeat="thing in awesomeThings">
+          <!--<h4>{{userName}}</h4>-->
+        <div class="">{{thing.name}}<p>{{thing.comment}}</p><button type="button" class="close" ng-click="editData(thing)">Edit</button><button type="button" class="close" ng-click="deleteThing(thing)">Delete</button></div>
+      </div>
+    </div>
+  </div>
+
+  <form class="thing-form" ng-show="!editPost">
+    <label>Think Better & Share With People</label>
+    <p class="input-group">
+        <input type="text" class="form-control" placeholder="Enter Your Name" ng-model="name">
+      <textarea type="text" class="form-control" placeholder="Share your idea's with people" ng-model="comment"></textarea>
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-success" ng-click="addThing()">Add New</button>
+      </span>
+    </p>
+  </form>
+    <form class="thing-form" ng-show="editPost">
+    <label>Change if something went to wrong</label>
+    <p class="input-group">
+        <input type="text" class="form-control" ng-model="thing.name">
+      <textarea type="text" class="form-control" ng-model="thing.comment"></textarea>
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-info" ng-click="updatePost(thing)">Update</button>
+      </span>
+    </p>
+  </form>
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <p>Angular Fullstack v2.0.13 |
+        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
+         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
+  </div>
+</footer>
