@@ -35,7 +35,7 @@ angular.module('studentTableApp')
         };
         $scope.updatePost = function(thing){
             console.log(thing);
-//            $http.put('/api/things/'+ thing._id, {name:thing.name, comment: thing.comment});
-//            $scope.editPost = false;
+            $http.put('/api/things/'+ thing._id, {name:thing.name, comment: thing.comment});
+            $scope.editPost = false;
         }
   });

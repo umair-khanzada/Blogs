@@ -5,7 +5,8 @@ var mongoose = require('mongoose'),
 
 var BlogsSchema = new Schema({
   name: String,
-  comment: String
+  comment: String,
+  likes: [String]
 });
 
 module.exports = mongoose.model('Blogs', BlogsSchema);

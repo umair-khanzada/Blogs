@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('studentTableApp')
-  .controller('BlogsCtrl', function ($scope, $http, Auth, socket) {
+  .controller('BlogsCtrl', function ($scope, $http, Auth, $filter,  socket) {
         $scope.blogsItem = [];
         $scope.userName = Auth.getCurrentUser().name;
         $scope.editPost = false;
@@ -22,6 +22,8 @@ angular.module('studentTableApp')
             $scope.name = '';
             $scope.comment = '';
             $scope.showBlog();
+            $scope.today = $filter('date')(new Date(),'yyyy-MM-dd HH:mm');
+            console.log($scope.today)
         };
 
         $scope.deleteItem = function(itemBlog) {

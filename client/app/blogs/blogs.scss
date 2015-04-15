@@ -1,0 +1,17 @@
+.myContainer{ margin: 0 !important; padding-left: 0 !important; width: 100%;}
+
+.sideMenu{ width: 15%; float: left; background: mediumturquoise;  overflow: hidden; min-height: 800px !important;
+.sideMenuItem{padding: 5px 5px;}
+}
+
+.myRow{ float: right !important; width: 86%;}
+
+.toggleButton{float: left; padding: 5px;}
+
+.category{ color: white; font-size: 16px; font-weight: 800; text-align: left; margin-top: 45px; width: 175px;}
+
+.ul{  padding: 8px;
+  li{ list-style: none; width: 170px;}
+  a{ text-decoration: none;}
+  i{float: right;}
+}
