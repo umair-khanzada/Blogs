@@ -5,7 +5,9 @@ var mongoose = require('mongoose'),
 
 var BlogsSchema = new Schema({
   name: String,
+  description: String,
   comment: String,
+  commentName: String,
   likes: [String]
 });
 

@@ -14,18 +14,33 @@ angular.module('studentTableApp')
                 $scope.blogsItem = blogList;
             });
         };
-        $scope.addThing = function() {
-            if($scope.name === ''|| $scope.comment === '') {
+
+        $scope.addPost = function() {
+            if($scope.description === '') {
                 return;
             }
-            $http.post('/api/blogs/', { name: $scope.name, comment: $scope.comment });
-            $scope.name = '';
-            $scope.comment = '';
+            $http.post('/api/blogs/', { description: $scope.description });
+            $scope.description = '';
             $scope.showBlog();
             $scope.today = $filter('date')(new Date(),'yyyy-MM-dd HH:mm');
             console.log($scope.today)
         };
 
+        $scope.addComment = function(itemBlog){
+            $http.get('/api/blogs/'+ itemBlog._id);
+            $scope.editPost = true;
+            console.log(itemBlog._id);
+        };
+
+        $scope.postComment = function(itemBlog) {
+            if($scope.commentName === ''|| $scope.comment === '') {
+                return;
+            }
+            $http.put('/api/blogs/'+ itemBlog._id, { commentName: $scope.commentName, comment: $scope.comment });
+            console.log(itemBlog._id);
+            $scope.editPost = false;
+            $scope.showBlog();
+        };
         $scope.deleteItem = function(itemBlog) {
             $http.delete('/api/blogs/' + itemBlog._id);
             $scope.showBlog();

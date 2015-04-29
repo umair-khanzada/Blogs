@@ -30,16 +30,16 @@ exports.create = function(req, res) {
 
 // Updates an existing student in the DB.
 exports.update = function(req, res) {
-  if(req.body._id) { delete req.body._id; }
-  Student.findById(req.params.id, function (err, student) {
-    if (err) { return handleError(res, err); }
-    if(!student) { return res.send(404); }
-    var updated = _.merge(student, req.body);
-    updated.save(function (err) {
-      if (err) { return handleError(res, err); }
-      return res.json(200, student);
+    if(req.body._id) { delete req.body._id; }
+    Student.findById(req.params.id, function (err, student) {
+        if (err) { return handleError(res, err); }
+        if(!student) { return res.send(404); }
+        var updated = _.merge(student, req.body);
+        updated.save(function (err) {
+            if (err) { return handleError(res, err); }
+            return res.json(200, student);
+        });
     });
-  });
 };
 
 // Deletes a student from the DB.

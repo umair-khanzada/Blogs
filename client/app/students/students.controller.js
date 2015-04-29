@@ -23,20 +23,20 @@ angular.module('studentTableApp')
             $scope.age = '';
             $scope.showTable();
         };
-        $scope.remove = function(student){
-            $http.delete('/api/students/' + student._id);
+
+        $scope.remove = function(zzz){
+            $http.delete('/api/students/' + zzz._id);
             $scope.showTable();
         };
-        $scope.edit = function(student){
-            $http.get('/api/students/'+ student._id);
-            console.log(student._id);
+        $scope.edit = function(zzz){
+            $http.get('/api/students/'+ zzz._id);
+            console.log(zzz._id);
             $scope.editForm = true;
-            $scope.student = student;
-
+            $scope.student = zzz;
         };
-        $scope.xyz = function(student){
-            console.log(student);
-            $http.put('/api/students/'+ student._id,{name:student.name, class: student.class, age: student.age});
+        $scope.xyz = function(zzz){
+            console.log(zzz);
+            $http.put('/api/students/'+ zzz._id,{name:zzz.name, class: zzz.class, age: zzz.age});
             $scope.editForm = false;
         }
 

@@ -17,31 +17,53 @@
     <div class="row myRow">
         <div class="col-lg-12">
             <a href="#" class="toggleButton" side-bar=""><i class="glyphicon glyphicon-chevron-left"></i></a>
-            <h1 class="page-header">Idea's:</h1>
+
+            <form class="thing-form">
+                <label>Share Something better for people</label>
+                <p class="input-group">
+                    <textarea type="text" class="form-control" ng-model="description"></textarea>
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-info" ng-click="addPost()">Share</button>
+                    </span>
+                </p>
+            </form>
+
+            <!--<h1 class="page-header">Idea's:</h1>-->
             <div class="col-sm-12" ng-repeat="itemBlog in blogsItem">
-                <!--<h4>{{userName}}</h4>-->
-                <div class=""><h3>{{itemBlog.name}}</h3> <p>{{itemBlog.comment}}</p><button type="button" class="close" ng-click="editData(itemBlog)">Edit</button><button type="button" class="close" ng-click="deleteItem(itemBlog)">Delete</button><a href="#" like="">Like</a> <a href="#"><i class="glyphicon glyphicon-heart"></i></a> <a href="#">Comment</a></div>
+                <div class="">
+                    <!--<h3>{{itemBlog.name}}</h3> -->
+                    <p>{{itemBlog.description}}</p>
+                    <!--<button type="button" class="close" ng-click="editData(itemBlog)">Edit</button>-->
+                    <!--<button type="button" class="close" ng-click="deleteItem(itemBlog)">Delete</button>-->
+                    <a href="#" like="">Like</a>
+                    <a href="#"><i class="glyphicon glyphicon-heart"></i></a>
+                    <a href="#" ng-click="addComment(itemBlog)">Comment</a>
+                    <h5>{{itemBlog.commentName}}</h5>
+                    <span>{{itemBlog.comment}}</span>
+
+                    <form class="thing-form" ng-show="editPost">
+                        <label>Submit your opinion about this post...!!!</label>
+                        <p class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter Your Name" ng-model="commentName">
+                            <textarea type="text" class="form-control" placeholder="Share your idea's with people" ng-model="comment"></textarea>
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-success" ng-click="postComment(itemBlog)">Post</button>
+                    </span>
+                        </p>
+                    </form>
+                </div>
             </div>
-            <form class="thing-form" ng-show="!editPost">
-                <label>Think Better & Share With People</label>
-                <p class="input-group">
-                    <input type="text" class="form-control" placeholder="Enter Your Name" ng-model="name">
-                    <textarea type="text" class="form-control" placeholder="Share your idea's with people" ng-model="comment"></textarea>
-                    <span class="input-group-btn">
-                      <button type="submit" class="btn btn-success" ng-click="addThing(itemBlog)">Add New</button>
-                    </span>
-                </p>
-            </form>
-            <form class="thing-form" ng-show="editPost">
-                <label>Change if something went to wrong</label>
-                <p class="input-group">
-                    <input type="text" class="form-control" ng-model="itemBlog.name">
-                    <textarea type="text" class="form-control" ng-model="itemBlog.comment"></textarea>
-                    <span class="input-group-btn">
-                      <button type="submit" class="btn btn-info" ng-click="updatePost(itemBlog)">Update</button>
-                    </span>
-                </p>
-            </form>
+
+            <!--<form class="thing-form" ng-show="editPost">-->
+                <!--<label>Change if something went to wrong</label>-->
+                <!--<p class="input-group">-->
+                    <!--<input type="text" class="form-control" ng-model="itemBlog.name">-->
+                    <!--<textarea type="text" class="form-control" ng-model="itemBlog.comment"></textarea>-->
+                    <!--<span class="input-group-btn">-->
+                      <!--<button type="submit" class="btn btn-info" ng-click="updatePost(itemBlog)">Update</button>-->
+                    <!--</span>-->
+                <!--</p>-->
+            <!--</form>-->
         </div>
     </div>
 
